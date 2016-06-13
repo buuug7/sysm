@@ -35,7 +35,7 @@ return [
   'Cache' => '缓存',
   'Cache entry has been successfully deleted' => '缓存删除成功',
   'Cache has been successfully flushed' => '缓存全部清除成功',
-  'Carousel Widgets' => 'Carousel Widgets',
+  'Carousel Widgets' => '幻灯片小部件',
   'Carousel slide was successfully saved' => 'Carousel slide was successfully saved',
   'Category' => '分类',
   'Clear' => '清除',
