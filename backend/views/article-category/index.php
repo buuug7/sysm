@@ -12,30 +12,30 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-category-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-            'modelClass' => 'Article Category',
-        ]), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+    <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+      'modelClass' => Yii::t('backend', 'Article Categories'),
+    ]), ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+  <?php echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => [
+      ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'slug',
-            'title',
-            'status',
+      'id',
+      'slug',
+      'title',
+      'status',
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
-            ],
-        ],
-    ]); ?>
+      [
+        'class' => 'yii\grid\ActionColumn',
+        'template' => '{update} {delete}'
+      ],
+    ],
+  ]); ?>
 
 </div>

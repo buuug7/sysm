@@ -9,9 +9,9 @@ class m150725_192740_seed_data extends Migration
     {
         $this->insert('{{%user}}', [
             'id' => 1,
-            'username' => 'webmaster',
-            'email' => 'webmaster@example.com',
-            'password_hash' => Yii::$app->getSecurity()->generatePasswordHash('webmaster'),
+            'username' => 'root',
+            'email' => 'root@example.com',
+            'password_hash' => Yii::$app->getSecurity()->generatePasswordHash('root'),
             'auth_key' => Yii::$app->getSecurity()->generateRandomString(),
             'access_token' => Yii::$app->getSecurity()->generateRandomString(40),
             'status' => User::STATUS_ACTIVE,
@@ -43,17 +43,16 @@ class m150725_192740_seed_data extends Migration
 
         $this->insert('{{%user_profile}}', [
             'user_id'=>1,
-            'locale'=>Yii::$app->sourceLanguage,
-            'firstname' => 'John',
-            'lastname' => 'Doe'
+            'locale'=>Yii::$app->language,
+            'firstname' => 'buuug7',
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>2,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->language
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>3,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->language
         ]);
 
         $this->insert('{{%page}}', [

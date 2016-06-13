@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\commands\AddToTimelineCommand;
 use common\models\query\ArticleQuery;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
@@ -144,7 +145,8 @@ class Article extends ActiveRecord
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
             'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At')
+            'updated_at' => Yii::t('common', 'Updated At'),
+          'attachments' => Yii::t('common','Attachments'),
         ];
     }
 
@@ -179,4 +181,37 @@ class Article extends ActiveRecord
     {
         return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
     }
+
+  public function afterSave($insert, $changedAttributes)
+  {
+    Yii::$app->commandBus->handle(new AddToTimelineCommand([
+      'category' => 'article',
+      'event' => 'save',
+      'data' => [
+        'created_by' => Yii::$app->user->identity->username,
+        'model_id' => $this->id,
+        'model_name' => $this->title,
+        'created_time' => $insert ? $this->created_at : $this->updated_at,
+        'method' => $insert ? 'insert' : "update",
+      ]
+    ]));
+
+    parent::afterSave($insert, $changedAttributes);
+  }
+
+  public function afterDelete()
+  {
+    Yii::$app->commandBus->handle(new AddToTimelineCommand([
+      'category' => 'article',
+      'event' => 'delete',
+      'data' => [
+        'deleted_by' => Yii::$app->user->identity->username,
+        'model_id' => $this->id,
+        'model_name' => $this->title,
+        'method' => 'deleted',
+        'time' => time(),
+      ],
+    ]));
+    parent::afterDelete();
+  }
 }
