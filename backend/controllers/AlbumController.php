@@ -43,6 +43,9 @@ class AlbumController extends Controller
   {
     $searchModel = new AlbumSearch();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    $dataProvider->pagination = [
+      'pageSize' => '15',
+    ];
 
     return $this->render('index', [
       'searchModel' => $searchModel,

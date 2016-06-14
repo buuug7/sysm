@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
   <p>
     <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-      'modelClass' => Yii::t('common','Album Category'),
+      'modelClass' => Yii::t('common', 'Album Category'),
     ]), ['create'], ['class' => 'btn btn-success']) ?>
   </p>
 
@@ -33,7 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
     'columns' => [
 
       'id',
-      'parent_id',
+      [
+        'attribute' => 'parent_id',
+        'value' => function ($model)
+        {
+          return $model->parent ? $model->parent->title : "root";
+        },
+      ],
       'title',
       'slug',
 

@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'format' => 'html',
         'value' => $model->thumbnail_path ? Html::img($model->getImageUrl(), ['style' => 'width: 100%', 'class' => 'img-responsive',]) : null,
       ],
+      'description:html',
       'url:url',
       'created_at:datetime',
       'updated_at:datetime',

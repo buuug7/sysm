@@ -24,7 +24,7 @@ use yii\helpers\ArrayHelper;
 
   <?php echo $form->errorSummary($model); ?>
 
-  <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'title'), ['prompt' => '']) ?>
+  <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'title'), ['prompt' => 'root']) ?>
 
   <?php echo $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

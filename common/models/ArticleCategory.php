@@ -95,6 +95,17 @@ class ArticleCategory extends ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasMany(ArticleCategory::className(), ['id' => 'parent_id']);
+        return $this->hasOne(ArticleCategory::className(), ['id' => 'parent_id']);
     }
+
+  /**
+   * @return array
+   */
+  public static function getStatus()
+  {
+    return [
+      self::STATUS_ACTIVE => Yii::t('common', 'Active'),
+      self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+    ];
+  }
 }

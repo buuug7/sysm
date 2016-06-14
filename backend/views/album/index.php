@@ -35,13 +35,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
       //'id',
       'name',
+      [
+        'attribute' => 'category_id',
+        'value' => function ($model)
+        {
+          return $model->category ? $model->category->title : null;
+        }
+      ],
       //'thumbnail_base_url:url',
       //'thumbnail_path',
       // 'url:url',
       'created_at:datetime',
       // 'updated_at',
       [
-        'label' => Yii::t('common', 'Picture'),
+        'attribute' => 'thumbnail',
         'format' => 'html',
         'value' => function ($model)
         {

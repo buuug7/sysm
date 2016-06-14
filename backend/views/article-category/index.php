@@ -9,6 +9,8 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('backend', 'Article Categories');
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <div class="article-category-index">
 
@@ -24,12 +26,25 @@ $this->params['breadcrumbs'][] = $this->title;
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'columns' => [
-      ['class' => 'yii\grid\SerialColumn'],
 
       'id',
-      'slug',
+      [
+        'attribute' => 'parent_id',
+        'value' => function ($model)
+        {
+          return $model->parent ? $model->parent->title : "root";
+        },
+      ],
+      //'slug',
       'title',
-      'status',
+      [
+        'class' => \common\grid\EnumColumn::className(),
+        'attribute' => 'status',
+        'enum' => [
+          Yii::t('common', 'Draft'),
+          Yii::t('common', 'Active')
+        ]
+      ],
 
       [
         'class' => 'yii\grid\ActionColumn',

@@ -45,7 +45,7 @@ return [
   'E-mail' => 'E-mail',
   'File Type' => '文件类型',
   'Firstname' => '名字',
-  'Gender' => '姓名',
+  'Gender' => '性别',
   'ID' => 'ID',
   'Image' => '图片',
   'Key' => '键',
@@ -101,5 +101,8 @@ return [
   'Category ID' => '分类ID',
   'Parent ID' => '上级ID',
   'Description' => '描述',
+
+  'Draft' => '未激活',
+  'Change Password' => '修改密码',
 
 ];

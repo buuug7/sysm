@@ -214,4 +214,16 @@ class Article extends ActiveRecord
     ]));
     parent::afterDelete();
   }
+
+
+  /**
+   * @return array
+   */
+  public static function getStatus()
+  {
+    return [
+      self::STATUS_PUBLISHED => Yii::t('common', 'Published'),
+      self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+    ];
+  }
 }
