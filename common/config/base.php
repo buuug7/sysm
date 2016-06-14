@@ -29,7 +29,12 @@ $config = [
       ]
     ],
     'formatter' => [
-      'class' => 'yii\i18n\Formatter'
+      'class' => 'yii\i18n\Formatter',
+      'dateFormat' => 'yyyy-MM-dd',
+      'datetimeFormat' => 'yyyy-MM-dd HH:mm',
+      'decimalSeparator' => ',',
+      'thousandSeparator' => ' ',
+      'currencyCode' => 'RMB',
     ],
     'glide' => [
       'class' => 'trntv\glide\components\Glide',
