@@ -77,10 +77,8 @@ return [
   'Value' => '值',
 
 
-
-
   'Attachments' => '附件',
-  'View Detail'=>'查看详情',
+  'View Detail' => '查看详情',
 
   'a new article ( {model_name} ) was created!' => '新文章 ( {model_name} ) 被创建 !',
   'article ( {model_name} ) was updated!' => '文章 ( {model_name} ) 被更新 !',
@@ -88,4 +86,20 @@ return [
   '{created_time} : {created_by} article ( {model_name} ) was updated' => '{created_time} : {created_by} 文章 ( {model_name} ) 被更新',
   'article ( {model_name} ) was deleted!' => '文章 ( {model_name} ) 被删除',
   '{created_time} : article ( {model_name} ) was deleted by user {deleted_by}' => '{created_time} : 文章 ( {model_name} ) 被用户{deleted_by}删除了',
+
+  'Successful Case' => '成功案例',
+  'Thumbnail Base Url' => '缩略图基础URL',
+  'Thumbnail Path' => '缩略图路径',
+  'Create' => '创建',
+  'Create {modelClass}' => '创建 {modelClass}',
+  'Update' => '更新',
+  'Update {modelClass}: ' => '更新 {modelClass}:',
+  'Delete' => '删除',
+
+  'Album' => '相册',
+  'Album Category' => '相册分类',
+  'Category ID' => '分类ID',
+  'Parent ID' => '上级ID',
+  'Description' => '描述',
+
 ];
