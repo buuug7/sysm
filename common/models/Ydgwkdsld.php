@@ -2,9 +2,11 @@
 
 namespace common\models;
 
+use PhpOffice\PhpWord\TemplateProcessor;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use common\commands\AddToTimelineCommand;
+use yii\bootstrap\Html;
 
 /**
  * This is the model class for table "{{%ydgwkdsld}}".
@@ -182,6 +184,38 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
       ],
     ]));
     parent::afterDelete();
+  }
+
+  public function printBiaoDan($path='phpword/resources/sample.docx',$outputPath='phpword/results/'){
+
+    $message="";
+    $tp=new TemplateProcessor($path);
+    $message.="<p>".date('H:i:s')." Creating new TemplateProcessor instance...</p>";
+
+    $tp->setValue('created_at', Html::encode(Yii::$app->formatter->asDatetime($this->created_at)));
+    $tp->setValue('sn', Html::encode($this->sn));
+    $tp->setValue('customer_name', Html::encode($this->customer_name));
+    $tp->setValue('customer_phone', Html::encode($this->customer_phone));
+    $tp->setValue('address', Html::encode($this->address));
+    $tp->setValue('address_detail', Html::encode($this->address_detail));
+    $tp->setValue('package_price', Html::encode($this->package_price));
+    $tp->setValue('primary_phone_number', Html::encode($this->primary_phone_number));
+    $tp->setValue('secondly_phone_number_1', Html::encode($this->secondly_phone_number_1));
+    $tp->setValue('secondly_phone_number_2', Html::encode($this->secondly_phone_number_2));
+    $tp->setValue('secondly_phone_number_3', Html::encode($this->secondly_phone_number_3));
+
+    $tp->setValue('customer_confirm_name', Html::encode($this->customer_confirm_name));
+    $tp->setValue('customer_confirm_time', Html::encode(Yii::$app->formatter->asDatetime($this->customer_confirm_time)));
+    $tp->setValue('business_person_name', Html::encode($this->business_person_name));
+    $tp->setValue('business_person_phone', Html::encode($this->business_person_phone));
+
+    $message.="<p>".date('H:i:s')." Saving the result document...</p>";
+    $tp->saveAs($outputPath."output.docx");
+    $message.="<p>".date('H:i:s')." Done writing file(s)</p>";
+    $message.="<p>".date('H:i:s')." Peak memory usage:".(memory_get_peak_usage(true) / 1024 / 1024)."MB</p>";
+    $message.="<p><a href='/admin/phpword/results/output.docx' class='btn btn-success btn-flat'>下载表单.docx</a> </p>";
+    return $message;
+
   }
 
 }

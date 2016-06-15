@@ -109,11 +109,20 @@ class YdgwkdsldController extends Controller
     return $this->redirect(['index']);
   }
 
-  public function actionPrint($id)
-  {
-    $model = $this->findModel($id);
-    return $this->render('print', [
+  /*
+   * 打印表单
+   * */
+  public function actionPrint($id){
+    $model=$this->findModel($id);
+    $messages=$model->printBiaoDan();
+    Yii::$app->getSession()->setFlash('alert', [
+      'body' => '表单生成完毕,点击下面的按钮进行下载',
+      'options' => ['class' => 'alert-info']
+    ]);
+
+    return $this->render('print',[
       'model' => $model,
+      'messages' => $messages,
     ]);
   }
 
