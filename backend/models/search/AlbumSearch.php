@@ -24,7 +24,7 @@ class AlbumSearch extends Album
   {
     return [
       [['id', 'created_at', 'updated_at', 'status'], 'integer'],
-      [['name', 'descripton', 'thumbnail_base_url', 'thumbnail_path', 'url'], 'safe'],
+      [['name', 'description', 'thumbnail_base_url', 'thumbnail_path', 'url'], 'safe'],
     ];
   }
 
@@ -70,7 +70,7 @@ class AlbumSearch extends Album
       ->andFilterWhere(['like', 'thumbnail_path', $this->thumbnail_path])
       ->andFilterWhere(['like', 'url', $this->url])
       ->andFilterWhere(['like', 'name', $this->name])
-      ->andFilterWhere(['like', 'descripton', $this->description]);
+      ->andFilterWhere(['like', 'description', $this->description]);
 
     return $dataProvider;
   }

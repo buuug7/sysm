@@ -59,7 +59,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'template'=>'{update} {delete}'
             ]
-        ]
+        ],
+      'layout' => "{items}\n{summary}\n{pager}",
     ]); ?>
 
 </div>

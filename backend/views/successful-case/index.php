@@ -41,6 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
       ],
       // 'slug',
       // 'status',
+      [
+        'class' => \common\grid\EnumColumn::className(),
+        'attribute' => 'status',
+        'enum' => \common\models\SuccessfulCase::getStatus(),
+      ],
       // 'created_at',
       // 'updated_at',
 

@@ -105,4 +105,19 @@ return [
   'Draft' => '未激活',
   'Change Password' => '修改密码',
 
+  'Contact Us' => '联系我们',
+  'Business Handing' => '业务办理',
+
+  'Customer Name' => '客户姓名',
+  'Customer Phone' => '客户联系电话',
+  'Progress' => '进度',
+
+  'Progress New' => '新提交',
+  'Progress Doing' => '正在处理',
+  'Progress Finished' => '处理完成',
+  'Progress Exception' => '异常',
+  'In Use' => '有效',
+  'Not Used' => '无效的',
+  'Print' => '打印',
+
 ];

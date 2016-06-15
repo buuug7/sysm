@@ -23,8 +23,8 @@ use yii\behaviors\TimestampBehavior;
 class SuccessfulCase extends \yii\db\ActiveRecord
 {
 
-  const STATUS_IN_USE = 1;
   const STATUS_NOT_USED = 0;
+  const STATUS_IN_USE = 1;
 
   public $thumbnail;
 

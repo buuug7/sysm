@@ -175,6 +175,16 @@ $bundle = BackendAsset::register($this);
               ]
             ],
 
+            [
+              'label' => Yii::t('common', 'Business Handing'),
+              'url' => '#',
+              'icon' => '<i class="fa fa-table"></i>',
+              'options' => ['class' => 'treeview'],
+              'items' => [
+                ['label' =>'光网宽带受理单', 'url' => ['/ydgwkdsld/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+              ]
+            ],
+
 
             [
               'label' => Yii::t('common', 'Successful Case'),

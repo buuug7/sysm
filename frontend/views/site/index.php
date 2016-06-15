@@ -1,16 +1,19 @@
 <?php
 /* @var $this yii\web\View */
 $this->title = Yii::$app->name;
-var_dump(Yii::$app->language)
 ?>
 <div class="site-index">
+<div class="row">
+  <div class="col-1g-12">
+    <?php echo \common\widgets\DbCarousel::widget([
+      'key' => 'index',
+      'options' => [
+        'class' => 'slide', // enables slide effect
+      ],
+    ]) ?>
+  </div>
+</div>
 
-  <?php echo \common\widgets\DbCarousel::widget([
-    'key' => 'index',
-    'options' => [
-      'class' => 'slide', // enables slide effect
-    ],
-  ]) ?>
 
   <div class="jumbotron">
     <h1>Congratulations!</h1>

@@ -58,10 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
       [
         'class' => \common\grid\EnumColumn::className(),
         'attribute' => 'status',
-        'enum' => [
-          Yii::t('common', 'Not Active'),
-          Yii::t('common', 'Active')
-        ]
+        'enum' => \common\models\Album::getStatus(),
       ],
 
       ['class' => 'yii\grid\ActionColumn'],

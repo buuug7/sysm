@@ -12,28 +12,29 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => Yii::t('backend','Pages'),
-]), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+    <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+      'modelClass' => Yii::t('backend', 'Pages'),
+    ]), ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            'id',
-            'title',
-            'slug',
-            'status',
+  <?php echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => [
+      'id',
+      'title',
+      'slug',
+      'status',
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
-            ],
-        ],
-    ]); ?>
+      [
+        'class' => 'yii\grid\ActionColumn',
+        'template' => '{update} {delete}'
+      ],
+    ],
+    'layout' => "{items}\n{summary}\n{pager}",
+  ]); ?>
 
 </div>

@@ -27,7 +27,7 @@ use trntv\filekit\widget\Upload;
     ]);
   ?>
 
-  <?php echo $form->field($model, 'status')->checkbox() ?>
+  <?php echo $form->field($model, 'status')->dropDownList(\common\models\SuccessfulCase::getStatus()) ?>
 
   <div class="form-group">
     <?php echo Html::submitButton($model->isNewRecord ? Yii::t('common', 'Create') : Yii::t('common', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

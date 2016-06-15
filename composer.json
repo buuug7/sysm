@@ -48,7 +48,8 @@
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
     "symfony/process": "^3.0",
-    "kucha/ueditor": "*"
+    "kucha/ueditor": "*",
+    "phpoffice/phpword": "^0.12.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

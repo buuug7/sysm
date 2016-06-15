@@ -40,7 +40,7 @@ use yii\helpers\ArrayHelper;
 
   <?php echo $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-  <?php echo $form->field($model, 'status')->checkbox() ?>
+  <?php echo $form->field($model, 'status')->dropDownList(\common\models\Album::getStatus()) ?>
 
   <div class="form-group">
     <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success btn-flat' : 'btn btn-primary btn-flat']) ?>

@@ -33,8 +33,8 @@ use yii\behaviors\TimestampBehavior;
 class Album extends \yii\db\ActiveRecord
 {
 
-  const STATUS_IN_USE = 1;
   const STATUS_NOT_USED = 0;
+  const STATUS_IN_USE = 1;
 
   public $thumbnail;
 
@@ -90,7 +90,7 @@ class Album extends \yii\db\ActiveRecord
       'url' => Yii::t('common', 'Url'),
       'created_at' => Yii::t('common', 'Created At'),
       'updated_at' => Yii::t('common', 'Updated At'),
-      'status' => Yii::t('common', 'Active'),
+      'status' => Yii::t('common', 'Status'),
     ];
   }
 
