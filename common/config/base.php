@@ -53,7 +53,8 @@ $config = [
         'username' => env('MAIL_USERNAME'),
         'password' => env('MAIL_PASSWORD'),
         'port' => env('MAIL_PORT'),
-        'encryption' => 'tls',
+        //'encryption' => 'tls',
+        'encryption' => 'ssl',
       ],
       'messageConfig' => [
         'charset' => 'UTF-8',
@@ -175,10 +176,10 @@ if (YII_ENV_DEV)
   $config['components']['cache'] = [
     'class' => 'yii\caching\DummyCache'
   ];
-/*    $config['components']['mailer']['transport'] = [
-	  'class' => 'Swift_SmtpTransport',
-	  'host' => env('SMTP_HOST'),
-	  'port' => env('SMTP_PORT'),
-	];*/
+  /*    $config['components']['mailer']['transport'] = [
+		'class' => 'Swift_SmtpTransport',
+		'host' => env('SMTP_HOST'),
+		'port' => env('SMTP_PORT'),
+	  ];*/
 }
 return $config;

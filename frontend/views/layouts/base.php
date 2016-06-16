@@ -22,7 +22,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
     'items' => [
       ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
       ['label' => '公司动态', 'url' => ['/article/index']],
-      ['label' => '核心业务', 'url' => ['/article2/index2']],
+      ['label' => '核心业务', 'url' => ['/business-handing/index']],
       ['label' => '公司风采', 'url' => ['/article3/index2']],
 
       ['label' => '公司制度', 'url' => ['/page/view', 'slug' => 'gong-si-zhi-du']],

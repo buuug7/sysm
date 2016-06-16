@@ -182,6 +182,7 @@ $bundle = BackendAsset::register($this);
               'options' => ['class' => 'treeview'],
               'items' => [
                 ['label' =>'光网宽带受理单', 'url' => ['/ydgwkdsld/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                ['label' =>'意见反馈与保修', 'url' => ['/fan-kui/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
               ]
             ],
 

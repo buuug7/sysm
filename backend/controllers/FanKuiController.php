@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Ydgwkdsld;
-use backend\models\search\YdgwkdsldSearch;
+use common\models\Fankui;
+use backend\models\search\FanKuiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * YdgwkdsldController implements the CRUD actions for Ydgwkdsld model.
+ * FanKuiController implements the CRUD actions for FanKui model.
  */
-class YdgwkdsldController extends Controller
+class FanKuiController extends Controller
 {
 
   public function behaviors()
@@ -33,9 +33,8 @@ class YdgwkdsldController extends Controller
    */
   public function actionIndex()
   {
-    $searchModel = new YdgwkdsldSearch();
+    $searchModel = new FanKuiSearch();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
     $dataProvider->sort = [
       'defaultOrder' => ['id' => SORT_DESC,]
     ];
@@ -65,7 +64,7 @@ class YdgwkdsldController extends Controller
    */
   public function actionCreate()
   {
-    $model = new Ydgwkdsld();
+    $model = new Fankui();
     $model->setSN();
 
     if ($model->load(Yii::$app->request->post()) && $model->save())
@@ -135,12 +134,12 @@ class YdgwkdsldController extends Controller
    * Finds the Ydgwkdsld model based on its primary key value.
    * If the model is not found, a 404 HTTP exception will be thrown.
    * @param integer $id
-   * @return Ydgwkdsld the loaded model
+   * @return FanKui the loaded model
    * @throws NotFoundHttpException if the model cannot be found
    */
   protected function findModel($id)
   {
-    if (($model = Ydgwkdsld::findOne($id)) !== null)
+    if (($model = Fankui::findOne($id)) !== null)
     {
       return $model;
     } else
