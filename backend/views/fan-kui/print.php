@@ -8,11 +8,12 @@
  */
 
 use yii\bootstrap\Html;
+
 /* @var $this yii\web\View */
-/* @var $model common\models\FanKui */
+/* @var $model common\models\Ydgwkdsld */
 
 $this->title = "打印表单(编号{$model->sn})";
-$this->params['breadcrumbs'][] = ['label' => '移动光网宽带受理单', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '意见反馈与保修', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -20,6 +21,5 @@ $this->params['breadcrumbs'][] = $this->title;
   <p>
     <?= Html::a('重新生成',['print','id' => $model->id,],['class' => 'btn btn-flat btn-info',]);?>
   </p>
-
   <?= $messages?>
 </div>

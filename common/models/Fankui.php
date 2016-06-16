@@ -2,16 +2,16 @@
 
 namespace common\models;
 
-use PhpOffice\PhpWord\TemplateProcessor;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use common\commands\AddToTimelineCommand;
+use PhpOffice\PhpWord\TemplateProcessor;
 use yii\bootstrap\Html;
+use yii\helpers\ArrayHelper;
 use common\commands\SendEmailCommand;
 
 /**
- * This is the model class for table "{{%ydgwkdsld}}".
- * 移动光网宽带受理单
+ * This is the model class for table "{{%fankui}}".
  *
  * @property integer $id
  * @property integer $user_id
@@ -20,11 +20,9 @@ use common\commands\SendEmailCommand;
  * @property string $customer_phone
  * @property string $address
  * @property string $address_detail
- * @property string $package_price
- * @property string $primary_phone_number
- * @property string $secondly_phone_number_1
- * @property string $secondly_phone_number_2
- * @property string $secondly_phone_number_3
+ * @property string $error_code
+ * @property integer $red_light_flashing
+ * @property string $detail_description
  * @property string $customer_confirm_name
  * @property integer $customer_confirm_time
  * @property string $business_person_name
@@ -33,10 +31,8 @@ use common\commands\SendEmailCommand;
  * @property integer $updated_at
  * @property integer $progress
  * @property integer $status
- *
- * @property User $user
  */
-class Ydgwkdsld extends \yii\db\ActiveRecord
+class Fankui extends \yii\db\ActiveRecord
 {
 
   const STATUS_NOT_USED = 0;
@@ -47,6 +43,9 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
   const PROGRESS_FINISHED = 2; //处理完成
   const PROGRESS_EXCEPTION = 3; //异常
 
+  const RED_LIGHT_FLASHING_OFF = 0;
+  const RED_LIGHT_FLASHING_ON = 1;
+
 
   public function behaviors()
   {
@@ -55,13 +54,12 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     ];
   }
 
-
   /**
    * @inheritdoc
    */
   public static function tableName()
   {
-    return '{{%ydgwkdsld}}';
+    return '{{%fankui}}';
   }
 
   /**
@@ -70,12 +68,13 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
   public function rules()
   {
     return [
-      [['customer_name', 'user_id', 'customer_phone', 'address', 'package_price', 'primary_phone_number', 'status'], 'required'],
-      [['user_id', 'progress', 'status'], 'integer'],
-      [['customer_phone', 'primary_phone_number', 'secondly_phone_number_1', 'secondly_phone_number_2', 'secondly_phone_number_3'], 'match', 'pattern' => '/^1[34578]\d{9}$/',],
-      [['customer_confirm_time'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
-      [['sn', 'customer_name', 'customer_phone', 'primary_phone_number', 'secondly_phone_number_1', 'secondly_phone_number_2', 'secondly_phone_number_3', 'customer_confirm_name', 'business_person_name', 'business_person_phone'], 'string', 'max' => 64],
-      [['address', 'address_detail', 'package_price'], 'string', 'max' => 512],
+      [['user_id', 'customer_name', 'customer_phone', 'address_detail', 'error_code', 'red_light_flashing', 'detail_description'], 'required'],
+      [['user_id', 'red_light_flashing', 'created_at', 'updated_at', 'progress', 'status'], 'integer'],
+      [['detail_description'], 'string'],
+      [['customer_phone'], 'match', 'pattern' => '/^1[34578]\d{9}$/',],
+      [['sn', 'customer_name', 'error_code', 'customer_confirm_name', 'business_person_name', 'business_person_phone'], 'string', 'max' => 64],
+      [['customer_phone'], 'string', 'max' => 255],
+      [['address', 'address_detail'], 'string', 'max' => 512],
       [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
     ];
   }
@@ -86,28 +85,27 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
   public function attributeLabels()
   {
     return [
-      'id' => Yii::t('common', 'ID'),
+      'id' => 'ID',
       'user_id' => Yii::t('common', 'User ID'),
-      'sn' => Yii::t('common', 'Sn'),
+      'sn' => '编号',
       'customer_name' => '客户姓名',
       'customer_phone' => '客户联系电话',
       'address' => '住宅小区',
       'address_detail' => '详细地址',
-      'package_price' => '套餐资费',
-      'primary_phone_number' => '主号',
-      'secondly_phone_number_1' => '副号1',
-      'secondly_phone_number_2' => '副号2',
-      'secondly_phone_number_3' => '副号3',
-      'customer_confirm_name' => '客户签字确认',
-      'customer_confirm_time' => '客户签字确认时间',
-      'business_person_name' => '业务办理人员姓名',
-      'business_person_phone' => '业务办理人员联系电话',
+      'error_code' => '错误代码',
+      'red_light_flashing' => '红灯闪烁',
+      'detail_description' => '错误详情描述',
+      'customer_confirm_name' => '客户确认签字',
+      'customer_confirm_time' => '客户确认时间',
+      'business_person_name' => '办理人员姓名',
+      'business_person_phone' => '办理人员电话',
       'created_at' => Yii::t('common', 'Created At'),
       'updated_at' => Yii::t('common', 'Updated At'),
       'progress' => Yii::t('common', 'Progress'),
       'status' => Yii::t('common', 'Status'),
     ];
   }
+
 
   /**
    * @return \yii\db\ActiveQuery
@@ -117,10 +115,11 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     return $this->hasOne(User::className(), ['id' => 'user_id']);
   }
 
+
   /*
-   * set repair SN
-   * yyyyMMddHHmmss+4bit(digit)
-   * */
+ * set repair SN
+ * yyyyMMddHHmmss+4bit(digit)
+ * */
   public function setSN()
   {
     $this->sn = Yii::$app->formatter->asDatetime(time(), 'yyyyMMddHHmmss') . mt_rand(1000, 9999);
@@ -150,11 +149,22 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     ];
   }
 
+  /**
+   * @return array
+   */
+  public static function getRedLightFlashingStatus()
+  {
+    return [
+      self::RED_LIGHT_FLASHING_OFF => '未闪烁',
+      self::RED_LIGHT_FLASHING_ON => '闪烁',
+    ];
+  }
+
 
   public function afterSave($insert, $changedAttributes)
   {
     Yii::$app->commandBus->handle(new AddToTimelineCommand([
-      'category' => 'ydgwkdsld',
+      'category' => 'fankui',
       'event' => 'save',
       'data' => [
         'created_by' => Yii::$app->user->identity->username,
@@ -171,7 +181,7 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
   public function afterDelete()
   {
     Yii::$app->commandBus->handle(new AddToTimelineCommand([
-      'category' => 'ydgwkdsld',
+      'category' => 'fankui',
       'event' => 'delete',
       'data' => [
         'deleted_by' => Yii::$app->user->identity->username,
@@ -184,7 +194,8 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     parent::afterDelete();
   }
 
-  public function printBiaoDan($path = 'phpword/resources/sample.docx', $outputPath = 'phpword/results/')
+
+  public function printBiaoDan($path = 'phpword/resources/fankui.docx', $outputPath = 'phpword/results/')
   {
 
     $message = "";
@@ -197,11 +208,10 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     $tp->setValue('customer_phone', Html::encode($this->customer_phone));
     $tp->setValue('address', Html::encode($this->address));
     $tp->setValue('address_detail', Html::encode($this->address_detail));
-    $tp->setValue('package_price', Html::encode($this->package_price));
-    $tp->setValue('primary_phone_number', Html::encode($this->primary_phone_number));
-    $tp->setValue('secondly_phone_number_1', Html::encode($this->secondly_phone_number_1));
-    $tp->setValue('secondly_phone_number_2', Html::encode($this->secondly_phone_number_2));
-    $tp->setValue('secondly_phone_number_3', Html::encode($this->secondly_phone_number_3));
+
+    $tp->setValue('error_code', Html::encode($this->error_code));
+    $tp->setValue('red_light_flashing', Html::encode(ArrayHelper::getValue(self::getRedLightFlashingStatus(), $this->red_light_flashing)));
+    $tp->setValue('detail_description', Html::encode($this->detail_description));
 
 
     $tp->setValue('business_person_name', Html::encode($this->business_person_name));
@@ -213,18 +223,20 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     $message .= "<p>" . date('H:i:s') . " Peak memory usage:" . (memory_get_peak_usage(true) / 1024 / 1024) . "MB</p>";
     $message .= "<p><a href='/admin/phpword/results/output.docx' class='btn btn-success btn-flat'>下载表单.docx</a> </p>";
     return $message;
+
   }
 
   public function sendEmail()
   {
     Yii::$app->commandBus->handle(new SendEmailCommand([
-      'subject' => '移动光网宽带受理单',
-      'view' => 'ydgwkdsld',
+      'subject' => '意见反馈与报修',
+      'view' => 'fankui',
       'to' => Yii::$app->user->identity->email,
       'params' => [
         'model' => $this,
       ]
     ]));
   }
+
 
 }

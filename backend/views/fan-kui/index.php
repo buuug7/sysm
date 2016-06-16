@@ -2,22 +2,22 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use common\models\Ydgwkdsld;
+use common\models\Fankui;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\search\YdgwkdsldSearch */
+/* @var $searchModel backend\models\search\FanKuiSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '移动光网宽带受理单';
+$this->title = '意见反馈与保修';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ydgwkdsld-index">
+<div class="fankui-index">
 
   <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
   <p>
     <?php echo Html::a(Yii::t('common', 'Create {modelClass}', [
-      'modelClass' => '移动光网宽带受理单',
+      'modelClass' => '意见反馈与保修',
     ]), ['create'], ['class' => 'btn btn-success']) ?>
   </p>
 
@@ -40,11 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
       'customer_phone',
       // 'address',
       // 'address_detail',
-      'package_price',
-      // 'primary_phone_number',
-      // 'secondly_phone_number_1',
-      // 'secondly_phone_number_2',
-      // 'secondly_phone_number_3',
+
       // 'customer_confirm_name',
       // 'customer_confirm_time:datetime',
       // 'business_person_name',
@@ -54,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
       [
         'class' => \common\grid\EnumColumn::className(),
         'attribute' => 'progress',
-        'enum' => Ydgwkdsld::getProgress(),
+        'enum' => Fankui::getProgress(),
       ],
       // 'status',
 
@@ -64,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'visibleButtons' => [
           'update' => function ($model)
           {
-            return Yii::$app->user->can('forceUpdatePermission') ? true : ($model->progress !== Ydgwkdsld::PROGRESS_FINISHED);
+            return Yii::$app->user->can('forceUpdatePermission') ? true : ($model->progress !== Fankui::PROGRESS_FINISHED);
           },
           'delete' => Yii::$app->user->can('deletePermission'),
         ],

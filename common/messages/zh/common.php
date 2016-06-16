@@ -119,5 +119,6 @@ return [
   'In Use' => '有效',
   'Not Used' => '无效的',
   'Print' => '打印',
+  'captcha' => '验证码',
 
 ];
