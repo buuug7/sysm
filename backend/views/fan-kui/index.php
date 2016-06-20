@@ -41,6 +41,15 @@ $this->params['breadcrumbs'][] = $this->title;
       // 'address',
       // 'address_detail',
 
+      'error_code',
+      [
+        'class' => \common\grid\EnumColumn::className(),
+        'attribute' => 'red_light_flashing',
+        'enum' => \frontend\models\FanKui::getRedLightFlashingStatus(),
+      ],
+
+      // 'detail_description',
+
       // 'customer_confirm_name',
       // 'customer_confirm_time:datetime',
       // 'business_person_name',

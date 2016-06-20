@@ -65,8 +65,8 @@ class Album extends \yii\db\ActiveRecord
   public function rules()
   {
     return [
-      [['category_id', 'status','name'], 'required'],
-      [['status','category_id'], 'integer'],
+      [['category_id', 'status', 'name'], 'required'],
+      [['status', 'category_id'], 'integer'],
       [['url'], 'string', 'max' => 255],
       [['description'], 'string'],
       [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
@@ -82,7 +82,7 @@ class Album extends \yii\db\ActiveRecord
     return [
       'id' => Yii::t('common', 'ID'),
       'category_id' => Yii::t('common', 'Category ID'),
-      'name' => Yii::t('common','Name'),
+      'name' => Yii::t('common', 'Name'),
       'description' => Yii::t('common', 'Description'),
       'thumbnail' => Yii::t('common', 'Thumbnail'),
       'thumbnail_base_url' => Yii::t('common', 'Thumbnail Base Url'),
@@ -121,6 +121,12 @@ class Album extends \yii\db\ActiveRecord
       self::STATUS_NOT_USED => Yii::t('common', 'Not Used'),
       self::STATUS_IN_USE => Yii::t('common', 'In Use'),
     ];
+  }
+
+  public static function getRecentAlbumsByCategorySlug($categorySlug)
+  {
+    $articleCategory = AlbumCategory::findOne(['slug' => $categorySlug,]);
+    return self::find()->where(['status' => self::STATUS_IN_USE, 'category_id' => $articleCategory->id,])->orderBy('updated_at DESC')->all();
   }
 
 

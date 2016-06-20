@@ -70,7 +70,7 @@ class AccountForm extends Model
     {
         return [
             'username' => Yii::t('frontend', 'Username'),
-            'email' => Yii::t('frontend', 'Email'),
+            'email' => Yii::t('common', 'Email'),
             'password' => Yii::t('frontend', 'Password'),
             'password_confirm' => Yii::t('frontend', 'Confirm Password')
         ];

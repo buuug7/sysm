@@ -88,7 +88,7 @@ class Ydgwkdsld extends \yii\db\ActiveRecord
     return [
       'id' => Yii::t('common', 'ID'),
       'user_id' => Yii::t('common', 'User ID'),
-      'sn' => Yii::t('common', 'Sn'),
+      'sn' => Yii::t('common', 'SN'),
       'customer_name' => '客户姓名',
       'customer_phone' => '客户联系电话',
       'address' => '住宅小区',

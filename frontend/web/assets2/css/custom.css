@@ -1,1 +1,81 @@
 /* Add here all your css styles (customizations) */
+
+body {
+  font-family: "Microsoft YaHei";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Microsoft YaHei", "Open Sans", Arial, sans-serif;
+}
+
+.title-v1 h1,
+.title-v1 h2 {
+  font-family: "Microsoft YaHei", "Open Sans", Arial, sans-serif;
+}
+
+.interactive-slider-v2 {
+  background: url(../img/bg/18.jpg) no-repeat;
+}
+
+.interactive-slider-v2 h1 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+
+.interactive-slider-v2 p{
+  margin-top: 15px;
+  font-size: 18px;
+  font-family: "Microsoft YaHei";
+}
+
+@media (min-width: 992px) {
+  .header-fixed .header-v2 .navbar-header .navbar-brand h4 {
+    font-weight: bold;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .header-fixed-shrink .navbar-default .navbar-header .navbar-brand h4 {
+    color: #777;
+  }
+}
+
+
+   /*Registration and Login Page v1
+ ------------------------------------*/
+ .reg-page {
+   color: #555;
+   padding: 30px;
+   background: #fefefe;
+   border: solid 1px #eee;
+   box-shadow: 0 0 3px #eee;
+ }
+
+/*Reg Header*/
+.reg-header {
+  color: #555;
+  text-align: center;
+  margin-bottom: 35px;
+  border-bottom: solid 1px #eee;
+}
+
+.reg-header h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/*Reg Forms*/
+.reg-page label {
+  color: #777;
+}
+
+
+.panel-2 {
+  border-color: #1abc9c;
+}
+

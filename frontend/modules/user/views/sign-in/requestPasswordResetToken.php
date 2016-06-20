@@ -6,20 +6,32 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 /* @var $model \frontend\modules\user\models\PasswordResetRequestForm */
 
-$this->title =  Yii::t('frontend', 'Request password reset');
+$this->title = Yii::t('frontend', 'Request password reset');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-request-password-reset">
-    <h1><?php echo Html::encode($this->title) ?></h1>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
-                <?php echo $form->field($model, 'email') ?>
-                <div class="form-group">
-                    <?php echo Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
-                </div>
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+<div class="container content">
+  <div class="site-request-password-reset">
+    <blockquote class="hero">
+      请填写你注册账号时候的电子邮件,一封重置密码的链接会发送到你的邮箱
+    </blockquote>
+
+    <?php $form = ActiveForm::begin([
+      'id' => 'request-password-reset-form',
+      'options' => [
+        'class' => 'form-inline',
+      ],
+    ]); ?>
+
+    <?php echo $form->field($model, 'email', [
+      'template' => '{label} {input}',
+    ]) ?>
+    <?php echo Html::submitButton('发送', ['class' => 'btn btn-primary']) ?>
+
+    <p>
+      <?php echo $form->errorSummary($model); ?>
+    </p>
+    <?php ActiveForm::end(); ?>
+  </div>
 </div>
+

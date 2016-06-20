@@ -10,7 +10,7 @@ $this->title = '宽带维护';
 $this->params['breadcrumbs'][] = ['label' => '核心业务', 'url' => ['business-handing/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ydgwkdsld-index">
+<div class="container content">
 
   <?php echo $this->render('_form', [
     'model' => $model,
