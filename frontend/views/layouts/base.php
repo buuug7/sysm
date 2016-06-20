@@ -85,7 +85,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
               <a href="<?php echo Url::to(['/page/view', 'slug' => 'gong-si-zhi-du']) ?>">互动平台</a>
               <ul class="dropdown-menu pull-right">
                 <li><?= Html::a('查询订单', ['/my-order/index']) ?></li>
-                <li><?= Html::a('意见反馈', ['/feedback/index']) ?></li>
+                <li><?= Html::a('意见反馈', ['/site/contact']) ?></li>
               </ul>
             </li>
           </ul>
@@ -128,11 +128,11 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
       <div class="container">
         <div class="bn">
 
-          <?= Html::a('宽带安装', ['/ydgwkdsld/index',], ['class' => 'btn-u btn-u-blue',]) ?>
+          <?= Html::a('宽带安装', ['/ydgwkdsld/index',], ['class' => 'btn-u btn-u-blue btn-u-lg',]) ?>
 
-          <?= Html::a('宽带维护', ['/fan-kui/index',], ['class' => 'btn-u btn-u-red',]) ?>
+          <?= Html::a('宽带维护', ['/fan-kui/index',], ['class' => 'btn-u btn-u-red btn-u-lg',]) ?>
 
-          <?= Html::a('安防监控', ['/ydgwkdsld/index',], ['class' => 'btn-u btn-u-orange',]) ?>
+          <?= Html::a('安防监控', ['/ydgwkdsld/index',], ['class' => 'btn-u btn-u-orange btn-u-lg',]) ?>
 
         </div>
 

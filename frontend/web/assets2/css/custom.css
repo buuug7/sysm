@@ -13,10 +13,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Microsoft YaHei", "Open Sans", Arial, sans-serif;
 }
 
-.interactive-slider-v2 {
-  background: url(../img/bg/18.jpg) no-repeat;
-}
-
 .interactive-slider-v2 h1 {
   color: #fff;
   font-size: 30px;
@@ -77,5 +73,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-2 {
   border-color: #1abc9c;
+}
+
+.title-box .title-box-text {
+  font-size: 25px;
 }
 
