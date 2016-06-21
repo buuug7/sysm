@@ -12,7 +12,11 @@ use yii\helpers\Html;
 <head>
   <meta charset="<?php echo Yii::$app->charset ?>"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title><?php echo $this->title; ?> | <?= Yii::$app->keyStorage->get('seo_title') ?></title>
+  <meta name="keywords" content="<?= Yii::$app->keyStorage->get('seo_keywords') ?>">
+  <meta name="description" content="<?= Yii::$app->keyStorage->get('seo_description') ?>">
+
   <?php $this->head() ?>
   <!-- CSS Global Compulsory -->
   <!--  <link rel="stylesheet" href="/assets2/plugins/bootstrap/css/bootstrap.min.css">-->

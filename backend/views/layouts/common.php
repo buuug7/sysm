@@ -202,7 +202,7 @@ $bundle = BackendAsset::register($this);
             [
               'label' => '首页定制',
               'icon' => '<i class="fa fa-file"></i>',
-              'url' => ['/video/video-settings']
+              'url' => ['/index-custom/custom-one-settings']
             ],
 
             [

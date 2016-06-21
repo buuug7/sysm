@@ -157,4 +157,8 @@ return [
   'an admin user was deleted!' => '一个管理员被删除了',
   '{delete_time} : admin ({identity}) was deleted by {by_user}' => '{delete_time} : 管理员({identity})被{by_user}删除了',
 
+  'Recommend' => '推荐',
+  'Recommend Yes' => '推荐',
+  'Recommend No' => '不推荐',
+
 ];

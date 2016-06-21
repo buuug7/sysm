@@ -29,6 +29,8 @@ use yii\db\ActiveRecord;
  * @property integer $published_at
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $recommend
+ * @property string $description
  *
  * @property User $author
  * @property User $updater
@@ -40,6 +42,9 @@ class Article extends ActiveRecord
 
   const STATUS_PUBLISHED = 1;
   const STATUS_DRAFT = 0;
+
+  const RECOMMEND_NO = 0;
+  const RECOMMEND_YES = 1;
 
   /**
    * @var array
@@ -114,14 +119,14 @@ class Article extends ActiveRecord
     return [
       [['title', 'body', 'category_id'], 'required'],
       [['slug'], 'unique'],
-      [['body'], 'string'],
+      [['body', 'description'], 'string'],
       [['published_at'], 'default', 'value' => function ()
       {
         return date(DATE_ISO8601);
       }],
       [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
       [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
-      [['author_id', 'updater_id', 'status'], 'integer'],
+      [['author_id', 'recommend', 'updater_id', 'status'], 'integer'],
       [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
       [['title'], 'string', 'max' => 512],
       [['view'], 'string', 'max' => 255],
@@ -149,6 +154,9 @@ class Article extends ActiveRecord
       'created_at' => Yii::t('common', 'Created At'),
       'updated_at' => Yii::t('common', 'Updated At'),
       'attachments' => Yii::t('common', 'Attachments'),
+
+      'recommend' => Yii::t('common', 'Recommend'),
+      'description' => Yii::t('common', 'Description'),
     ];
   }
 
@@ -229,8 +237,29 @@ class Article extends ActiveRecord
     ];
   }
 
+  /**
+   * @return array
+   */
+  public static function getRecommend()
+  {
+    return [
+      self::RECOMMEND_NO => Yii::t('common', 'Recommend No'),
+      self::RECOMMEND_YES => Yii::t('common', 'Recommend Yes'),
+    ];
+  }
+
+
   public static function getRecentArticles($limit)
   {
     return (new static())->find()->published()->orderBy('published_at DESC')->limit($limit)->all();
+  }
+
+  public static function getRecommendArticlesByCategorySlug($slug)
+  {
+    $catgeogryId = ArticleCategory::findOne(['slug' => $slug,])->id;
+    return self::find()->published()->filterWhere([
+      'recommend' => self::RECOMMEND_YES,
+      'category_id' => $catgeogryId,
+    ])->orderBy('published_at DESC')->one();
   }
 }

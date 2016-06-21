@@ -12,55 +12,63 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?php echo Html::a(
-            Yii::t('backend', 'Create {modelClass}', ['modelClass' => Yii::t('backend','Articles')]),
-            ['create'],
-            ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+    <?php echo Html::a(
+      Yii::t('backend', 'Create {modelClass}', ['modelClass' => Yii::t('backend', 'Articles')]),
+      ['create'],
+      ['class' => 'btn btn-success']) ?>
+  </p>
 
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
+  <?php echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => [
 
-            'id',
-            'slug',
-            'title',
-            [
-                'attribute'=>'category_id',
-                'value'=>function ($model) {
-                    return $model->category ? $model->category->title : null;
-                },
-                'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
-            ],
-            [
-                'attribute'=>'author_id',
-                'value'=>function ($model) {
-                    return $model->author->username;
-                }
-            ],
-            [
-                'class'=>\common\grid\EnumColumn::className(),
-                'attribute'=>'status',
-                'enum'=>[
-                    Yii::t('backend', 'Not Published'),
-                    Yii::t('backend', 'Published')
-                ]
-            ],
-            'published_at:datetime',
-            'created_at:datetime',
+      'id',
+      //'slug',
+      'title',
+      [
+        'attribute' => 'category_id',
+        'value' => function ($model)
+        {
+          return $model->category ? $model->category->title : null;
+        },
+        'filter' => \yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
+      ],
+      [
+        'attribute' => 'author_id',
+        'value' => function ($model)
+        {
+          return $model->author->username;
+        }
+      ],
+      [
+        'class' => \common\grid\EnumColumn::className(),
+        'attribute' => 'status',
+        'enum' => [
+          Yii::t('backend', 'Not Published'),
+          Yii::t('backend', 'Published')
+        ]
+      ],
+      [
+        'class' => \common\grid\EnumColumn::className(),
+        'attribute' => 'recommend',
+        'enum' => \common\models\Article::getRecommend(),
+      ],
 
-            // 'updated_at',
+      'published_at:datetime',
+      //'created_at:datetime',
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
-            ]
-        ],
-      'layout' => "{items}\n{summary}\n{pager}",
-    ]); ?>
+      // 'updated_at',
+
+      [
+        'class' => 'yii\grid\ActionColumn',
+        'template' => '{update} {delete}'
+      ]
+    ],
+    'layout' => "{items}\n{summary}\n{pager}",
+  ]); ?>
 
 </div>

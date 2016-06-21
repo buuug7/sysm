@@ -15,24 +15,27 @@ $this->title = Yii::$app->name;
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-rocket color-sea"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_one_title')?></strong>
-        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
+        <strong><?= Yii::$app->keyStorage->get('block_one_title') ?></strong>
+
+        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-cog color-blue"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_two_title')?></strong>
-        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
+        <strong><?= Yii::$app->keyStorage->get('block_two_title') ?></strong>
+
+        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-lock color-orange"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_three_title')?></strong>
-        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
+        <strong><?= Yii::$app->keyStorage->get('block_three_title') ?></strong>
+
+        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
       </div>
     </div>
   </div>
@@ -57,11 +60,10 @@ $this->title = Yii::$app->name;
           <div class="item">
             <a href="<?= \yii\helpers\Url::to(['article/view', 'slug' => $article->slug,]) ?>">
               <em class="overflow-hidden">
-                <!--                --><? /*= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
+                <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
                   'glide/index',
                   'path' => $article->thumbnail_path,
-                ], true), ['class' => 'img-responsive']) */ ?>
-                <img class="img-responsive" src="/assets2/img/main/img1.jpg" alt="">
+                ], true), ['class' => 'img-responsive']) ?>
               </em>
               <span>
                 <i><?= $article->title ?></i>
@@ -83,8 +85,7 @@ $this->title = Yii::$app->name;
               <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
                 'glide/index',
                 'path' => $album->thumbnail_path,
-              ], true)) ?>
-
+              ], true), ['class' => 'img-responsive', 'style' => 'width:100%',]) ?>
               <div class="carousel-caption">
                 <p><?= $album->description ?></p>
               </div>
@@ -101,22 +102,40 @@ $this->title = Yii::$app->name;
           </a>
         </div>
       </div>
-      <h2>员工相册/商品相册</h2>
+      <h2>员工相册 / 商品相册</h2>
     </div>
-    <div class="col-md-4">
-      <img alt="" src="/assets2/img/main/img22.jpg" class="img-responsive">
 
-      <h2>推荐产品</h2>
+    <!--推荐产品-->
+    <?php
+    $recomendProduct = \common\models\Article::getRecommendArticlesByCategorySlug('chan-pin-dong-tai')
+    ?>
+    <?php if ($recomendProduct): ?>
+      <div class="col-md-4">
+        <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
+          'glide/index',
+          'path' => $recomendProduct->thumbnail_path,
+        ], true), ['class' => 'img-responsive', 'style' => 'width:100%',]) ?>
 
-      <p>eleniti atque corrupti quos dolores vero eosetaet quas</p>
-    </div>
+        <h2>
+          <a
+            href="<?= \yii\helpers\Url::to(['/article/view', 'slug' => $recomendProduct->slug,]) ?>">
+            <?= $recomendProduct->title ?>
+          </a>
+        </h2>
+
+        <p><?= \yii\helpers\StringHelper::truncate($recomendProduct->description,50)?></p>
+      </div>
+    <?php endif; ?>
+
+    <!--视频-->
     <div class="col-md-4 md-margin-bottom-40">
       <!--<iframe width="100%" height="227" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src=""></iframe>-->
-      <iframe height=227 width=100% src="<?= Yii::$app->keyStorage->get('video_url')?>" frameborder=0
-              allowfullscreen=""></iframe>
-      <h2><?= Yii::$app->keyStorage->get('video_title')?></h2>
 
-      <p><?= Yii::$app->keyStorage->get('video_description')?></p>
+      <iframe height=200 width=100% src="<?= Yii::$app->keyStorage->get('video_url') ?>" frameborder=0
+              allowfullscreen=""></iframe>
+      <h2><?= Yii::$app->keyStorage->get('video_title') ?></h2>
+
+      <p><?= Yii::$app->keyStorage->get('video_description') ?></p>
     </div>
   </div>
 

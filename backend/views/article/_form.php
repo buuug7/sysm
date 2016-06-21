@@ -27,10 +27,12 @@ use yii\bootstrap\ActiveForm;
     'title'
   ), ['prompt' => '']) ?>
 
+  <?php echo $form->field($model, 'description')->textarea() ?>
+
   <?php echo $form->field($model, 'body')->widget(
     \yii\imperavi\Widget::className(),
     [
-      'plugins' => ['fullscreen', 'fontcolor', 'video','table','fontsize','indent'],
+      'plugins' => ['fullscreen', 'fontcolor', 'video', 'table', 'fontsize', 'indent'],
       'options' => [
         'lang' => 'zh',
         'minHeight' => 400,
@@ -64,6 +66,8 @@ use yii\bootstrap\ActiveForm;
   <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
 
   <?php echo $form->field($model, 'status')->checkbox() ?>
+
+  <?php echo $form->field($model, 'recommend')->checkbox() ?>
 
   <?php echo $form->field($model, 'published_at')->widget(
     DateTimeWidget::className(),
