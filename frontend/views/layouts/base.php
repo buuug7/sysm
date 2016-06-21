@@ -28,7 +28,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
           <div class="col-sm-4">
             <div class="topbar-buttons pull-right">
               <?php if (Yii::$app->user->isGuest): ?>
-                  <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?php echo Url::to(['/user/sign-in/login']) ?>">登录/注册</a>
+                  <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?php echo Url::to(['/user/sign-in/login']) ?>">登录 / 注册</a>
               <?php else: ?>
                   <a class="btn-u  margin-right-5" href="<?= Url::to(['/user/default/index']) ?>">
                     <?= Yii::$app->user->identity->getPublicIdentity() ?>
@@ -53,7 +53,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <span class="fa fa-bars"></span>
           </button>
           <a class="navbar-brand brand-style" href="/">
-            <h4>尚宜商贸</h4>
+            <img id="logo-header" src="/assets2/sysimg/logo-nav.png" width="85" height="32" alt="Logo">
           </a>
         </div>
 
@@ -172,7 +172,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <!-- About -->
           <div class="col-md-3 md-margin-bottom-40">
-            <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo.png" alt=""></a>
+            <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo-nav.png" alt=""></a>
 
             <p class="margin-bottom-20">
               尚宜商贸是一家专业安装维护移动光网宽带的信息公司
@@ -182,11 +182,9 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
 
           <!-- Link List -->
           <div class="col-md-3 md-margin-bottom-40">
-            <div class="headline"><h2 class="heading-sm">常用功能</h2></div>
+            <div class="headline"><h2 class="heading-sm">友情链接</h2></div>
             <ul class="list-unstyled link-list">
-              <li><a href="#">宽带安装</a><i class="fa fa-angle-right"></i></li>
-              <li><a href="#">宽带维护</a><i class="fa fa-angle-right"></i></li>
-              <li><a href="#">安防监控</a><i class="fa fa-angle-right"></i></li>
+              <li><a href="http://www.gsyd.com">甘肃移动官网</a><i class="fa fa-angle-right"></i></li>
             </ul>
           </div>
           <!-- End Link List -->

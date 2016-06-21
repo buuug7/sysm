@@ -204,6 +204,23 @@ $bundle = BackendAsset::register($this);
               'url' => ['/user/index'],
               'visible' => Yii::$app->user->can('administrator')
             ],
+
+            [
+              'label' => Yii::t('common', 'Settings'),
+              'url' => '#',
+              'icon' => '<i class="fa fa-pencil"></i>',
+              'options' => ['class' => 'treeview'],
+              'items' => [
+                ['label' => Yii::t('common', 'Application settings'), 'url' => ['/site/settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                ['label' => Yii::t('common', 'SEO Settings'), 'url' => ['/site/seo-settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                ['label' => Yii::t('common', 'Mail Settings'), 'url' => ['/site/mail-settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                ['label' => Yii::t('common', 'Basic Settings'), 'url' => ['/site/basic-settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                ['label' => Yii::t('common', 'Others Settings'), 'url' => ['/site/others-settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+              ],
+              'visible' => Yii::$app->user->can('administrator')
+            ],
+
+
             [
               'label' => Yii::t('backend', 'Other'),
               'url' => '#',

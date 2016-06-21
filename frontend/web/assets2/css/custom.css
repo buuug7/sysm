@@ -21,10 +21,14 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.interactive-slider-v2 p{
+.interactive-slider-v2 p {
   margin-top: 15px;
   font-size: 18px;
   font-family: "Microsoft YaHei";
+}
+
+.interactive-slider-v2 {
+  background: url(../sysimg/4.png) no-repeat;
 }
 
 @media (min-width: 992px) {
@@ -41,16 +45,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
-   /*Registration and Login Page v1
- ------------------------------------*/
- .reg-page {
-   color: #555;
-   padding: 30px;
-   background: #fefefe;
-   border: solid 1px #eee;
-   box-shadow: 0 0 3px #eee;
- }
+/*Registration and Login Page v1
+------------------------------------*/
+.reg-page {
+  color: #555;
+  padding: 30px;
+  background: #fefefe;
+  border: solid 1px #eee;
+  box-shadow: 0 0 3px #eee;
+}
 
 /*Reg Header*/
 .reg-header {
@@ -69,7 +72,6 @@ h1, h2, h3, h4, h5, h6 {
 .reg-page label {
   color: #777;
 }
-
 
 .panel-2 {
   border-color: #1abc9c;
