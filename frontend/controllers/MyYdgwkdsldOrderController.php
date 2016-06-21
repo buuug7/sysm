@@ -13,6 +13,7 @@ namespace frontend\controllers;
 use common\models\Ydgwkdsld;
 use frontend\models\search\YdgwkdsldSearch;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -23,6 +24,16 @@ class MyYdgwkdsldOrderController extends Controller
   public function behaviors()
   {
     return [
+      'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+          [
+            'actions' => ['index', 'view'],
+            'allow' => true,
+            'roles' => ['@'],
+          ]
+        ]
+      ],
       'verbs' => [
         'class' => VerbFilter::className(),
         'actions' => [
@@ -53,7 +64,7 @@ class MyYdgwkdsldOrderController extends Controller
     ]);
   }
 
-	/**
+  /**
    * @param $id
    * @return string
    * @throws NotFoundHttpException

@@ -15,6 +15,7 @@ use yii\filters\VerbFilter;
 use frontend\models\FanKui;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 
 class FanKuiController extends Controller
 {
@@ -22,6 +23,16 @@ class FanKuiController extends Controller
   public function behaviors()
   {
     return [
+      'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+          [
+            'actions' => ['index', 'view'],
+            'allow' => true,
+            'roles' => ['@'],
+          ]
+        ]
+      ],
       'verbs' => [
         'class' => VerbFilter::className(),
         'actions' => [

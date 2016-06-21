@@ -14,6 +14,7 @@ use frontend\models\search\FanKuiSearch;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 
 class MyFanKuiOrderController extends Controller
 {
@@ -21,6 +22,16 @@ class MyFanKuiOrderController extends Controller
   public function behaviors()
   {
     return [
+      'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+          [
+            'actions' => ['index', 'view'],
+            'allow' => true,
+            'roles' => ['@'],
+          ]
+        ]
+      ],
       'verbs' => [
         'class' => VerbFilter::className(),
         'actions' => [
@@ -51,7 +62,7 @@ class MyFanKuiOrderController extends Controller
     ]);
   }
 
-	/**
+  /**
    * @param $id
    * @return string
    * @throws NotFoundHttpException

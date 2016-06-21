@@ -10,6 +10,7 @@
 namespace frontend\controllers;
 
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use frontend\models\Ydgwkdsld;
@@ -22,6 +23,18 @@ class YdgwkdsldController extends Controller
   public function behaviors()
   {
     return [
+
+      'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+          [
+            'actions' => ['index','view'],
+            'allow' => true,
+            'roles' => ['@'],
+          ]
+        ]
+      ],
+
       'verbs' => [
         'class' => VerbFilter::className(),
         'actions' => [

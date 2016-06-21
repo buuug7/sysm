@@ -172,7 +172,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <!-- About -->
           <div class="col-md-3 md-margin-bottom-40">
-            <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/img/logo1-default.png" alt=""></a>
+            <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo.png" alt=""></a>
 
             <p class="margin-bottom-20">
               尚宜商贸是一家专业安装维护移动光网宽带的信息公司
