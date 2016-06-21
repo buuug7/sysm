@@ -28,7 +28,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .interactive-slider-v2 {
-  background: url(../sysimg/4.png) no-repeat;
+  background: url(../sysimg/1.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 @media (min-width: 992px) {
