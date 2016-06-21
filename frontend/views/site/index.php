@@ -15,27 +15,24 @@ $this->title = Yii::$app->name;
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-rocket color-sea"></i>
-        <strong>专业+快速</strong>
-
-        <p>我们拥有专业的团队,礼拜一到礼拜天随时都可以上门服务,及时为您解决宽带安装维护问题</p>
+        <strong><?= Yii::$app->keyStorage->get('block_one_title')?></strong>
+        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-cog color-blue"></i>
-        <strong>故障及时处理</strong>
-
-        <p>宽带故障?您不仅可以通过电话联系我们,还可以使用网站提供的宽带故障处理服务,我们会及时处理您的烦恼</p>
+        <strong><?= Yii::$app->keyStorage->get('block_two_title')?></strong>
+        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="promo-box">
         <i class="fa fa-lock color-orange"></i>
-        <strong>安全+定制</strong>
-
-        <p>宽带被人蹭?网速不给力?不用担心,我们已经为您提供了最安全最快速的解决方案</p>
+        <strong><?= Yii::$app->keyStorage->get('block_three_title')?></strong>
+        <p><?= Yii::$app->keyStorage->get('block_two_description')?></p>
       </div>
     </div>
   </div>
@@ -115,75 +112,14 @@ $this->title = Yii::$app->name;
     </div>
     <div class="col-md-4 md-margin-bottom-40">
       <!--<iframe width="100%" height="227" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src=""></iframe>-->
-      <iframe height=227 width=100% src="http://player.youku.com/embed/XMTU0MTMxNjcxMg==" frameborder=0
+      <iframe height=227 width=100% src="<?= Yii::$app->keyStorage->get('video_url')?>" frameborder=0
               allowfullscreen=""></iframe>
-      <h2>魔兽曝光终极预告 打斗场面逼真激烈</h2>
+      <h2><?= Yii::$app->keyStorage->get('video_title')?></h2>
 
-      <p>s on all major web browsers, tablets and phone. Lorem sequat ipsum dolor</p>
+      <p><?= Yii::$app->keyStorage->get('video_description')?></p>
     </div>
   </div>
 
-  <div class="row margin-bottom-20">
-    <!-- Latest Shots -->
-    <div class="col-md-4 md-margin-bottom-20">
-      <div class="headline"><h2>员工相册</h2></div>
-      <div id="myCarousel2" class="carousel slide carousel-v1">
-        <div class="carousel-inner">
-          <?php foreach (\common\models\Album::getRecentAlbumsByCategorySlug('yuan-gong-xiang-ce') as $k => $album): ?>
-            <div class="item <?= $k == 0 ? 'active' : '' ?>">
-              <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
-                'glide/index',
-                'path' => $album->thumbnail_path,
-              ], true)) ?>
-
-              <div class="carousel-caption">
-                <p><?= $album->description ?></p>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <div class="carousel-arrow">
-          <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-          </a>
-          <a class="right carousel-control" href="#myCarousel2" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!--/col-md-4-->
-
-    <!-- Welcome Block -->
-    <div class="col-md-8 md-margin-bottom-40">
-      <div class="headline"><h2>最新产品/视频here</h2></div>
-      <div class="row">
-        <div class="col-sm-4">
-          <img class="img-responsive margin-bottom-20" src="/assets2/img/main/img12.jpg" alt="">
-        </div>
-        <div class="col-sm-8">
-          <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It
-            works on all major web browsers, tablets and phone.</p>
-          <ul class="list-unstyled margin-bottom-20">
-            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-          </ul>
-        </div>
-      </div>
-
-      <blockquote class="hero-unify">
-        <p>
-          我从来不装逼 ( I Never Installed B )
-        </p>
-        <small>CEO, 赵总</small>
-      </blockquote>
-    </div>
-    <!--/col-md-8-->
-  </div>
-</div>
 </div>
 
 
@@ -201,9 +137,6 @@ $this->title = Yii::$app->name;
 
 
   <div class="jumbotron">
-    <h1>Congratulations!</h1>
-
-    <p class="lead">You have successfully created your Yii-powered application.</p>
 
     <?php /*echo common\widgets\DbMenu::widget([
       'key' => 'frontend-index',
@@ -217,36 +150,6 @@ $this->title = Yii::$app->name;
   <div class="body-content">
 
     <div class="row">
-      <div class="col-lg-4">
-        <h2>Heading</h2>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur.</p>
-
-        <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-      </div>
-      <div class="col-lg-4">
-        <h2>Heading</h2>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur.</p>
-
-        <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-      </div>
-      <div class="col-lg-4">
-        <h2>Heading</h2>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur.</p>
-
-        <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-      </div>
     </div>
 
   </div>

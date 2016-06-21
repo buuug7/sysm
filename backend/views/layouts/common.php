@@ -193,6 +193,17 @@ $bundle = BackendAsset::register($this);
               'url' => ['/successful-case/index']
             ],
 
+            [
+              'label' => '视频管理',
+              'icon' => '<i class="fa fa-video-camera"></i>',
+              'url' => ['/video/video-settings']
+            ],
+
+            [
+              'label' => '首页定制',
+              'icon' => '<i class="fa fa-file"></i>',
+              'url' => ['/video/video-settings']
+            ],
 
             [
               'label' => Yii::t('backend', 'System'),

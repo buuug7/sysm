@@ -202,17 +202,9 @@ class SiteController extends \yii\web\Controller
           'label' => Yii::t('common', 'Register Nums'),
           'type' => FormModel::TYPE_TEXTINPUT,
         ],
-        'keywords' => [
-          'label' => Yii::t('common', 'Keywords'),
-          'type' => FormModel::TYPE_TEXTAREA,
-        ],
         'bei_an' => [
           'label' => Yii::t('common', 'Bei An'),
           'type' => FormModel::TYPE_TEXTAREA,
-        ],
-        'wen_wang_wen' => [
-          'label' => Yii::t('common', 'Wen Wang Wen'),
-          'type' => FormModel::TYPE_TEXTINPUT,
         ],
         'zeng_zhi' => [
           'label' => Yii::t('common', 'Zeng Zhi'),
@@ -225,18 +217,6 @@ class SiteController extends \yii\web\Controller
 
         'app_key' => [
           'label' => Yii::t('common', 'App Key'),
-          'type' => FormModel::TYPE_TEXTINPUT,
-        ],
-        'uc_api' => [
-          'label' => Yii::t('common', 'UC API'),
-          'type' => FormModel::TYPE_TEXTINPUT,
-        ],
-        'uc_key' => [
-          'label' => Yii::t('common', 'UC Key'),
-          'type' => FormModel::TYPE_TEXTINPUT,
-        ],
-        'uc_password' => [
-          'label' => Yii::t('common', 'UC Password'),
           'type' => FormModel::TYPE_TEXTINPUT,
         ],
       ]
@@ -263,10 +243,6 @@ class SiteController extends \yii\web\Controller
         'bei_an_url' => [
           'label' => Yii::t('common', 'Bei An URL'),
           'type' => FormModel::TYPE_TEXTINPUT
-        ],
-        'wen_wang_wen_url' => [
-          'label' => Yii::t('common', 'Wen Wang Wen URL'),
-          'type' => FormModel::TYPE_TEXTINPUT,
         ],
         'authentication_alliance_URL' => [
           'label' => Yii::t('common', 'Authentication Alliance URL'),
