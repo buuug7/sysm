@@ -100,7 +100,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
     <style>
       @media (min-width: 992px) {
         .interactive-slider-v2 {
-          padding: 180px 0 100px 0 !important;
+          padding: 200px 0 150px 0 !important;
         }
 
         .interactive-slider-v2 .bn a {
