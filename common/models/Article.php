@@ -256,10 +256,14 @@ class Article extends ActiveRecord
 
   public static function getRecommendArticlesByCategorySlug($slug)
   {
-    $catgeogryId = ArticleCategory::findOne(['slug' => $slug,])->id;
-    return self::find()->published()->filterWhere([
-      'recommend' => self::RECOMMEND_YES,
-      'category_id' => $catgeogryId,
-    ])->orderBy('published_at DESC')->one();
+    if (ArticleCategory::findOne(['slug' => $slug,]))
+    {
+      $catgeogryId = ArticleCategory::findOne(['slug' => $slug,])->id;
+      return self::find()->published()->filterWhere([
+        'recommend' => self::RECOMMEND_YES,
+        'category_id' => $catgeogryId,
+      ])->orderBy('published_at DESC')->one();
+    }
+    return null;
   }
 }
