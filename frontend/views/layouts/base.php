@@ -21,8 +21,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <div class="col-sm-8">
             <ul class="list-inline top-v2-contacts">
-              <li>电子邮件: <a href="mailto:info@htmlstream.com"><?= env('ADMIN_EMAIL') ?></a></li>
-              <li>电话: <?= env('ADMIN_PHONE') ?></li>
+              <li>电子邮件: <a href="mailto:info@htmlstream.com"><?=Yii::$app->keyStorage->get('mail_support')?></a></li>
+              <li>电话: <?=Yii::$app->keyStorage->get('site_phone')?></li>
             </ul>
           </div>
           <div class="col-sm-4">
@@ -34,7 +34,6 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
                     <?= Yii::$app->user->identity->getPublicIdentity() ?>
                   </a>
                   <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?= Url::to(['/user/sign-in/logout']) ?>" data-method="post">退出</a>
-                </li>
               <?php endif; ?>
             </div>
           </div>
@@ -175,7 +174,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo-nav.png" alt=""></a>
 
             <p class="margin-bottom-20">
-              尚宜商贸是一家专业安装维护移动光网宽带的信息公司
+              <?=Yii::$app->keyStorage->get('site_description')?>
             </p>
           </div>
           <!-- End About -->
@@ -211,9 +210,9 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
           <div class="col-md-3 md-margin-bottom-40">
             <div class="headline"><h2 class="heading-sm">联系我们</h2></div>
             <address class="md-margin-bottom-40">
-              <i class="fa fa-home"></i>甘肃省兰州市 <br/>
-              <i class="fa fa-phone"></i>电话:18309467501 <br/>
-              <i class="fa fa-envelope"></i>Email: <a href="mailto:info@anybiz.com">sysm8008@163.com</a>
+              <i class="fa fa-home"></i><?=Yii::$app->keyStorage->get('site_address')?> <br/>
+              <i class="fa fa-phone"></i>电话:<?= Yii::$app->keyStorage->get('site_phone')?> <br/>
+              <i class="fa fa-envelope"></i>Email: <a href="mailto:info@anybiz.com"><?=Yii::$app->keyStorage->get('mail_support')?></a>
             </address>
 
             <!-- Social Links -->
