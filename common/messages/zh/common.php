@@ -161,4 +161,6 @@ return [
   'Recommend Yes' => '推荐',
   'Recommend No' => '不推荐',
 
+  'Friend Links' => '友情链接',
+  'Misc' => '杂项',
 ];

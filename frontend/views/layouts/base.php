@@ -21,19 +21,21 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <div class="col-sm-8">
             <ul class="list-inline top-v2-contacts">
-              <li>电子邮件: <a href="mailto:info@htmlstream.com"><?=Yii::$app->keyStorage->get('mail_support')?></a></li>
-              <li>电话: <?=Yii::$app->keyStorage->get('site_phone')?></li>
+              <li>电子邮件: <a href="mailto:info@htmlstream.com"><?= Yii::$app->keyStorage->get('mail_support') ?></a></li>
+              <li>电话: <?= Yii::$app->keyStorage->get('site_phone') ?></li>
             </ul>
           </div>
           <div class="col-sm-4">
             <div class="topbar-buttons pull-right">
               <?php if (Yii::$app->user->isGuest): ?>
-                  <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?php echo Url::to(['/user/sign-in/login']) ?>">登录 / 注册</a>
+                <a class="btn-u btn-brd btn-brd-hover btn-u-light"
+                   href="<?php echo Url::to(['/user/sign-in/login']) ?>">登录 / 注册</a>
               <?php else: ?>
-                  <a class="btn-u  margin-right-5" href="<?= Url::to(['/user/default/index']) ?>">
-                    <?= Yii::$app->user->identity->getPublicIdentity() ?>
-                  </a>
-                  <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?= Url::to(['/user/sign-in/logout']) ?>" data-method="post">退出</a>
+                <a class="btn-u  margin-right-5" href="<?= Url::to(['/user/default/index']) ?>">
+                  <?= Yii::$app->user->identity->getPublicIdentity() ?>
+                </a>
+                <a class="btn-u btn-brd btn-brd-hover btn-u-light" href="<?= Url::to(['/user/sign-in/logout']) ?>"
+                   data-method="post">退出</a>
               <?php endif; ?>
             </div>
           </div>
@@ -174,7 +176,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo-nav.png" alt=""></a>
 
             <p class="margin-bottom-20">
-              <?=Yii::$app->keyStorage->get('site_description')?>
+              <?= Yii::$app->keyStorage->get('site_description') ?>
             </p>
           </div>
           <!-- End About -->
@@ -183,7 +185,9 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
           <div class="col-md-3 md-margin-bottom-40">
             <div class="headline"><h2 class="heading-sm">友情链接</h2></div>
             <ul class="list-unstyled link-list">
-              <li><a href="http://www.gsyd.com">甘肃移动官网</a><i class="fa fa-angle-right"></i></li>
+              <?php foreach (\common\models\FriendLinks::getHotLinks(5) as $link): ?>
+                <li><a href="<?= $link->url ?>" target="_blank"><?= $link->name ?></a></li>
+              <?php endforeach; ?>
             </ul>
           </div>
           <!-- End Link List -->
@@ -210,9 +214,10 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
           <div class="col-md-3 md-margin-bottom-40">
             <div class="headline"><h2 class="heading-sm">联系我们</h2></div>
             <address class="md-margin-bottom-40">
-              <i class="fa fa-home"></i><?=Yii::$app->keyStorage->get('site_address')?> <br/>
-              <i class="fa fa-phone"></i>电话:<?= Yii::$app->keyStorage->get('site_phone')?> <br/>
-              <i class="fa fa-envelope"></i>Email: <a href="mailto:info@anybiz.com"><?=Yii::$app->keyStorage->get('mail_support')?></a>
+              <i class="fa fa-home"></i><?= Yii::$app->keyStorage->get('site_address') ?> <br/>
+              <i class="fa fa-phone"></i>电话:<?= Yii::$app->keyStorage->get('site_phone') ?> <br/>
+              <i class="fa fa-envelope"></i>Email: <a
+                href="mailto:info@anybiz.com"><?= Yii::$app->keyStorage->get('mail_support') ?></a>
             </address>
 
             <!-- Social Links -->

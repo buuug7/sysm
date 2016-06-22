@@ -13,30 +13,21 @@ $this->title = Yii::$app->name;
 
   <div class="row">
     <div class="col-md-4">
-      <div class="promo-box">
-        <i class="fa fa-rocket color-sea"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_one_title') ?></strong>
-
-        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
-      </div>
+      <?php echo \common\widgets\DbText::widget([
+        'key' => 'index-text-block-1',
+      ])?>
     </div>
 
     <div class="col-md-4">
-      <div class="promo-box">
-        <i class="fa fa-cog color-blue"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_two_title') ?></strong>
-
-        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
-      </div>
+        <?php echo \common\widgets\DbText::widget([
+          'key' => 'index-text-block-2',
+        ])?>
     </div>
 
     <div class="col-md-4">
-      <div class="promo-box">
-        <i class="fa fa-lock color-orange"></i>
-        <strong><?= Yii::$app->keyStorage->get('block_three_title') ?></strong>
-
-        <p><?= Yii::$app->keyStorage->get('block_two_description') ?></p>
-      </div>
+        <?php echo \common\widgets\DbText::widget([
+          'key' => 'index-text-block-1',
+        ])?>
     </div>
   </div>
 

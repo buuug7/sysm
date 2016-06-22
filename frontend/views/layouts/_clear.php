@@ -31,6 +31,7 @@ use yii\helpers\Html;
   <link rel="stylesheet" href="/assets2/plugins/line-icons/line-icons.css">
   <link rel="stylesheet" href="/assets2/plugins/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/assets2/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+<!--  <link rel="stylesheet" href="/assets2/plugins/vegas/vegas.min.css">-->
 
   <!-- CSS Theme -->
   <link rel="stylesheet" href="/assets2/css/theme-colors/default.css">
@@ -53,6 +54,8 @@ use yii\helpers\Html;
 <script src="/assets2/plugins/back-to-top.js"></script>
 <script src="/assets2/plugins/smoothScroll.js"></script>
 <script src="/assets2/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+
+<!--<script src="/assets2/plugins/vegas/vegas.min.js"></script>-->
 
 <!-- JS Customization -->
 <script type="text/javascript" src="/assets2/js/custom.js"></script>

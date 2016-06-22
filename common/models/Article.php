@@ -251,7 +251,7 @@ class Article extends ActiveRecord
 
   public static function getRecentArticles($limit)
   {
-    return (new static())->find()->published()->orderBy('published_at DESC')->limit($limit)->all();
+    return self::find()->published()->orderBy('published_at DESC')->limit($limit)->all();
   }
 
   public static function getRecommendArticlesByCategorySlug($slug)
