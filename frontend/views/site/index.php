@@ -15,19 +15,19 @@ $this->title = Yii::$app->name;
     <div class="col-md-4">
       <?php echo \common\widgets\DbText::widget([
         'key' => 'index-text-block-1',
-      ])?>
+      ]) ?>
     </div>
 
     <div class="col-md-4">
-        <?php echo \common\widgets\DbText::widget([
-          'key' => 'index-text-block-2',
-        ])?>
+      <?php echo \common\widgets\DbText::widget([
+        'key' => 'index-text-block-2',
+      ]) ?>
     </div>
 
     <div class="col-md-4">
-        <?php echo \common\widgets\DbText::widget([
-          'key' => 'index-text-block-1',
-        ])?>
+      <?php echo \common\widgets\DbText::widget([
+        'key' => 'index-text-block-1',
+      ]) ?>
     </div>
   </div>
 
@@ -114,53 +114,26 @@ $this->title = Yii::$app->name;
           </a>
         </h2>
 
-        <p><?= \yii\helpers\StringHelper::truncate($recomendProduct->description,50)?></p>
+        <p><?= \yii\helpers\StringHelper::truncate($recomendProduct->description, 50) ?></p>
       </div>
     <?php endif; ?>
 
     <!--视频-->
     <div class="col-md-4 md-margin-bottom-40">
-      <!--<iframe width="100%" height="227" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src=""></iframe>-->
-
-      <iframe height=200 width=100% src="<?= Yii::$app->keyStorage->get('video_url') ?>" frameborder=0
+      <!--      <iframe height=200 width=100% src="<? /*= Yii::$app->keyStorage->get('video_url') */ ?>" frameborder=10
               allowfullscreen=""></iframe>
-      <h2><?= Yii::$app->keyStorage->get('video_title') ?></h2>
+      <h2><? /*= Yii::$app->keyStorage->get('video_title') */ ?></h2>
 
-      <p><?= Yii::$app->keyStorage->get('video_description') ?></p>
+      <p><? /*= Yii::$app->keyStorage->get('video_description') */ ?></p>-->
+
+      <?php foreach (\common\models\Video::getLatestVideo(1) as $video): ?>
+        <video width="100%" height="100%" controls>
+          <source src="<?= $video->getVideoUrl() ?>" type="video/mp4">
+          <object data="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
+            <embed src="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
+          </object>
+        </video>
+      <?php endforeach; ?>
     </div>
   </div>
-
 </div>
-
-
-<!--<div class="site-index">
-<div class="row">
-  <div class="col-1g-12">
-    <?php /*echo \common\widgets\DbCarousel::widget([
-      'key' => 'index',
-      'options' => [
-        'class' => 'slide', // enables slide effect
-      ],
-    ]) */ ?>
-  </div>
-</div>
-
-
-  <div class="jumbotron">
-
-    <?php /*echo common\widgets\DbMenu::widget([
-      'key' => 'frontend-index',
-      'options' => [
-        'tag' => 'p'
-      ]
-    ]) */ ?>
-
-  </div>
-
-  <div class="body-content">
-
-    <div class="row">
-    </div>
-
-  </div>
-</div>-->

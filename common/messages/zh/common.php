@@ -163,4 +163,8 @@ return [
 
   'Friend Links' => '友情链接',
   'Misc' => '杂项',
+
+  'Video' => '视频',
+  'Videos' => '视频',
+  'Video Assets' => '视频资源',
 ];

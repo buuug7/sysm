@@ -18,7 +18,7 @@ $bundle = BackendAsset::register($this);
   <header class="main-header">
     <a href="<?php echo Yii::getAlias('@frontendUrl') ?>" class="logo">
       <!-- Add the class icon to your logo image or logo icon to add the margining -->
-      <?php echo Yii::$app->name ?>
+      <?php echo Yii::$app->keyStorage->get('backend_name')?>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -193,7 +193,7 @@ $bundle = BackendAsset::register($this);
             'options' => ['class' => 'treeview'],
             'items' => [
               ['label' => '成功案例', 'url' => ['/successful-case/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-              ['label' => '视频管理', 'url' => ['/video/video-settings'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+              ['label' => '视频管理', 'url' => ['/video/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
               ['label' => Yii::t('common','Friend Links'), 'url' => ['/friend-links/index'], 'icon' => '<i class="fa
                 fa-angle-double-right"></i>'],
             ]

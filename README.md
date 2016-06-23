@@ -34,6 +34,16 @@
 ### 首页内容块添加说明 
 
 ### 首页视频添加说明
+视频的编码格式为h264的mp4
+MP4 = 带有 H.264 视频编码和 AAC 音频编码的 MPEG 4 文件
+视频上传配置php.ini能上传大文件
+```
+memory_limit = 128M
+upload_max_filesize = 1024M
+post_max_size = 1024M
+max_execution_time 120
+max_input_time 60   
+```
 
 ### 员工相册
 
