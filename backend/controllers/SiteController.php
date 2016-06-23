@@ -63,7 +63,26 @@ class SiteController extends \yii\web\Controller
         'backend.layout-collapsed-sidebar' => [
           'label' => Yii::t('backend', 'Backend sidebar collapsed'),
           'type' => FormModel::TYPE_CHECKBOX
-        ]
+        ],
+
+        'frontend.theme' => [
+          'label' => Yii::t('common', 'Frontend Theme'),
+          'type' => FormModel::TYPE_DROPDOWN,
+          'items' => [
+            'aqua' => 'aqua',
+            'blue' => 'blue',
+            'brown' => 'brown',
+            'dark-blue' => 'dark-blue',
+            'kark-red' => 'dark-red',
+            'default' => 'default',
+            'light' => 'light',
+            'light-green' => 'light-green',
+            'orange' => 'orange',
+            'purple' => 'purple',
+            'red' => 'red',
+            'teal' => 'teal',
+          ],
+        ],
       ]
     ]);
 

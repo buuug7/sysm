@@ -123,7 +123,6 @@ $this->title = Yii::$app->name;
       <!--      <iframe height=200 width=100% src="<? /*= Yii::$app->keyStorage->get('video_url') */ ?>" frameborder=10
               allowfullscreen=""></iframe>
       <h2><? /*= Yii::$app->keyStorage->get('video_title') */ ?></h2>
-
       <p><? /*= Yii::$app->keyStorage->get('video_description') */ ?></p>-->
 
       <?php foreach (\common\models\Video::getLatestVideo(1) as $video): ?>
@@ -133,6 +132,7 @@ $this->title = Yii::$app->name;
             <embed src="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
           </object>
         </video>
+        <h2><?=$video->name?></h2>
       <?php endforeach; ?>
     </div>
   </div>

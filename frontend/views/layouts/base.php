@@ -237,7 +237,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
 
     <div class="copyright">
       <div class="container">
-        <p class="text-center">2016 &copy; <?= Yii::$app->name ?>版权所有 by <a target="_blank" href="#">buuug7</a>
+        <p class="text-center">2016 &copy; <?= Yii::$app->name ?>版权所有</a>
         </p>
       </div>
     </div>

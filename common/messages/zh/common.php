@@ -167,4 +167,5 @@ return [
   'Video' => '视频',
   'Videos' => '视频',
   'Video Assets' => '视频资源',
+  'Frontend Theme' => '前台主题',
 ];
