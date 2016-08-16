@@ -54,7 +54,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <span class="fa fa-bars"></span>
           </button>
           <a class="navbar-brand brand-style" href="/">
-            <img id="logo-header" src="/assets2/sysimg/remix.png"  alt="Logo">
+            <img id="logo-header" src="/assets2/sysimg/remix.png"" alt="Logo">
           </a>
         </div>
 

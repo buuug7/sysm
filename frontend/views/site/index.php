@@ -126,7 +126,7 @@ $this->title = Yii::$app->name;
       <p><? /*= Yii::$app->keyStorage->get('video_description') */ ?></p>-->
 
       <?php foreach (\common\models\Video::getLatestVideo(1) as $video): ?>
-        <video width="100%" height="100%" controls>
+        <video width="530" height="298" controls>
           <source src="<?= $video->getVideoUrl() ?>" type="video/mp4">
           <object data="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
             <embed src="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
