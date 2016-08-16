@@ -22,7 +22,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
           <div class="col-sm-8">
             <ul class="list-inline top-v2-contacts">
               <li>电子邮件: <a href="mailto:info@htmlstream.com"><?= Yii::$app->keyStorage->get('mail_support') ?></a></li>
-              <li>电话: <?= Yii::$app->keyStorage->get('site_phone') ?></li>
+              <li>咨询电话: <?= Yii::$app->keyStorage->get('site_phone') ?></li>
             </ul>
           </div>
           <div class="col-sm-4">
@@ -54,7 +54,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <span class="fa fa-bars"></span>
           </button>
           <a class="navbar-brand brand-style" href="/">
-            <img id="logo-header" src="/assets2/sysimg/logo-nav.png" width="85" height="32" alt="Logo">
+            <img id="logo-header" src="/assets2/sysimg/remix.png"  alt="Logo">
           </a>
         </div>
 
@@ -137,7 +137,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
 
         </div>
 
-        <p>为您提供专业的移动光网宽带安装维护解决方案</p>
+        <p>移动光网宽带安装100M来啦 ! 扫描页面底部的二维码关注我们的最新优惠动态</p>
       </div>
     </div>
     <!-- End Image Gradient -->
@@ -162,9 +162,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
     <!-- End Image Gradient -->
   <?php endif; ?>
 
-
   <?php echo $content ?>
-
 
   <!--=== Footer v2 ===-->
   <div id="footer-v2" class="footer-v2">

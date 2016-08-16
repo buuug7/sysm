@@ -8,7 +8,7 @@ $this->title = Yii::$app->name;
 
   <div class="title-box">
     <div class="title-box-text">如何在线申请宽带安装 , 宽带维护 , 更多...</div>
-    <p>第一次使用,首先<a href="#">注册账号</a> , <a href="">登录</a>之后选择您想要办理的<a href="#">业务</a>,填写表单,您要做的就这么多,剩下我们帮你完成</p>
+    <p>第一次使用,首先<a href="/user/sign-in/login">注册账号</a> , <a href="/user/sign-in/login">登录</a>之后选择您想要办理的<a href="#">业务</a>,填写表单,您要做的就这么多,剩下我们帮你完成</p>
   </div>
 
   <div class="row">
