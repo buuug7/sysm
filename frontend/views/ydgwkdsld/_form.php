@@ -30,23 +30,24 @@ use yii\captcha\Captcha;
 
     <!--  --><?php /*echo $form->field($model, 'sn')->textInput(['maxlength' => true]) */ ?>
 
-    <?php echo $form->field($model, 'customer_name')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'customer_name')->textInput(['maxlength' => true])->label("客户姓名 (<span style='color:red;'>*填写真实姓名</span>)") ?>
 
-    <?php echo $form->field($model, 'customer_phone')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'customer_phone')->textInput(['maxlength' => true])->label("客户联系电话 (<span
+    style='color:red;'>*能联系到的电话/业务主号</span>)") ?>
 
-    <?php echo $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'address')->textInput(['maxlength' => true])->label("住宅小区 (<span style='color:red;'>*填写真实地址</span>)") ?>
 
-    <?php echo $form->field($model, 'address_detail')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'address_detail')->textInput(['maxlength' => true])->label("详细地址 (<span style='color:red;'>*填写真实地址</span>)") ?>
 
     <?php echo $form->field($model, 'package_price')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'primary_phone_number')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'primary_phone_number')->textInput(['maxlength' => true])->label("宽带主号码") ?>
 
-    <?php echo $form->field($model, 'secondly_phone_number_1')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'secondly_phone_number_1')->textInput(['maxlength' => true])->label("宽带副号码1") ?>
 
-    <?php echo $form->field($model, 'secondly_phone_number_2')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'secondly_phone_number_2')->textInput(['maxlength' => true])->label("宽带副号码2") ?>
 
-    <?php echo $form->field($model, 'secondly_phone_number_3')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'secondly_phone_number_3')->textInput(['maxlength' => true])->label("宽带副号码3") ?>
 
     <!--  --><?php /*echo $form->field($model, 'customer_confirm_name')->textInput(['maxlength' => true]) */ ?>
 
