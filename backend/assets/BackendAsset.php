@@ -12,19 +12,22 @@ use yii\web\AssetBundle;
 
 class BackendAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
 
-    public $css = [
-        'css/style.css'
-    ];
-    public $js = [
-        'js/app.js'
-    ];
+  public $basePath = '@webroot';
+  public $baseUrl = '@web';
 
-    public $depends = [
-        'yii\web\YiiAsset',
-        'common\assets\AdminLte',
-        'common\assets\Html5shiv'
-    ];
+  public $css = [
+    'css/adminlte/AdminLTE.min.css',
+    'css/adminlte/skins/_all-skins.min.css',
+    'css/style.css'
+  ];
+  public $js = [
+    'js/app.js'
+  ];
+
+  public $depends = [
+    'yii\web\YiiAsset',
+    'common\assets\AdminLte',
+    'common\assets\Html5shiv'
+  ];
 }
