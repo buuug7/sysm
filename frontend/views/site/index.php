@@ -66,11 +66,19 @@ $this->title = Yii::$app->name;
     </div>
   </div>
 
-  <div class="row service-v1 margin-bottom-40">
-    <div class="col-md-4 md-margin-bottom-40">
+
+  <div class="row margin-bottom-30">
+    <!-- 关于我们 -->
+    <?php echo \common\widgets\DbText::widget([
+      'key' => 'about-us',
+    ]) ?>
+    <!--/col-md-8-->
+
+    <!-- 员工相册 -->
+    <div class="col-md-4">
+      <div class="headline"><h2>员工相册</h2></div>
       <div id="myCarousel" class="carousel slide carousel-v1">
         <div class="carousel-inner">
-
           <?php foreach (\common\models\Album::getRecentAlbumsByCategorySlug('yuan-gong-xiang-ce') as $k => $album): ?>
             <div class="item <?= $k == 0 ? 'active' : '' ?>">
               <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
@@ -93,47 +101,43 @@ $this->title = Yii::$app->name;
           </a>
         </div>
       </div>
-      <h2>员工相册 / 商品相册</h2>
-    </div>
+    </div><!--/col-md-4-->
+  </div>
+
+
+
+  <div class="row service-v1 margin-bottom-40">
+    <!--视频-->
+<!--    <div class="col-md-4 md-margin-bottom-40">
+      <?php /*foreach (\common\models\Video::getLatestVideo(1) as $video): */?>
+        <video width="100%" height="100%" controls style="outline:1px solid dimgrey">
+          <source src="<?/*= $video->getVideoUrl() */?>" type="video/mp4">
+          <object data="<?/*= $video->getVideoUrl() */?>" width="100%" height="100%">
+            <embed src="<?/*= $video->getVideoUrl() */?>" width="100%" height="100%">
+          </object>
+        </video>
+        <h2><?/*=$video->name*/?></h2>
+      <?php /*endforeach; */?>
+    </div>-->
 
     <!--推荐产品-->
     <?php
     $recomendProduct = \common\models\Article::getRecommendArticlesByCategorySlug('chan-pin-dong-tai')
     ?>
-    <?php if ($recomendProduct): ?>
+<!--    <?php /*if ($recomendProduct): */?>
       <div class="col-md-4">
-        <?= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
+        <?/*= \yii\helpers\Html::img(Yii::$app->glide->createSignedUrl([
           'glide/index',
           'path' => $recomendProduct->thumbnail_path,
-        ], true), ['class' => 'img-responsive', 'style' => 'width:100%',]) ?>
+        ], true), ['class' => 'img-responsive', 'style' => 'width:100%',]) */?>
 
         <h2>
           <a
-            href="<?= \yii\helpers\Url::to(['/article/view', 'slug' => $recomendProduct->slug,]) ?>">
-            <?= $recomendProduct->title ?>
+            href="<?/*= \yii\helpers\Url::to(['/article/view', 'slug' => $recomendProduct->slug,]) */?>">
+            <?/*= $recomendProduct->title */?>
           </a>
         </h2>
-
-        <p><?= \yii\helpers\StringHelper::truncate($recomendProduct->description, 50) ?></p>
       </div>
-    <?php endif; ?>
-
-    <!--视频-->
-    <div class="col-md-4 md-margin-bottom-40">
-      <!--      <iframe height=200 width=100% src="<? /*= Yii::$app->keyStorage->get('video_url') */ ?>" frameborder=10
-              allowfullscreen=""></iframe>
-      <h2><? /*= Yii::$app->keyStorage->get('video_title') */ ?></h2>
-      <p><? /*= Yii::$app->keyStorage->get('video_description') */ ?></p>-->
-
-      <?php foreach (\common\models\Video::getLatestVideo(1) as $video): ?>
-        <video width="100%" height="100%" controls>
-          <source src="<?= $video->getVideoUrl() ?>" type="video/mp4">
-          <object data="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
-            <embed src="<?= $video->getVideoUrl() ?>" width="100%" height="100%">
-          </object>
-        </video>
-        <h2><?=$video->name?></h2>
-      <?php endforeach; ?>
-    </div>
+    --><?php /*endif; */?>
   </div>
 </div>

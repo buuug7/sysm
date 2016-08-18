@@ -54,7 +54,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
             <span class="fa fa-bars"></span>
           </button>
           <a class="navbar-brand brand-style" href="/">
-            <img id="logo-header" src="/assets2/sysimg/remix.png"" alt="Logo">
+            <img id="logo-header" src="/assets2/sysimg/remix.png" width="180" height="30" alt="Logo">
           </a>
         </div>
 
@@ -171,8 +171,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <!-- About -->
           <div class="col-md-3 md-margin-bottom-40">
-            <a href="#"><img id="logo-footer" class="footer-logo" src="/assets2/sysimg/logo-nav.png" alt=""></a>
-
+            <div class="headline"><h2 class="heading-sm">关于我们</h2></div>
             <p class="margin-bottom-20">
               <?= Yii::$app->keyStorage->get('site_description') ?>
             </p>
@@ -235,7 +234,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
 
     <div class="copyright">
       <div class="container">
-        <p class="text-center">2016 &copy; <?= Yii::$app->name ?>版权所有</a>
+        <p class="text-center">2016 &copy; <?= Yii::$app->name ?>版权所有 | 备案号 : <?= Yii::$app->keyStorage->get('bei_an')
+          ?></a>
         </p>
       </div>
     </div>
