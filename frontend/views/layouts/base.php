@@ -171,10 +171,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php');
         <div class="row">
           <!-- About -->
           <div class="col-md-3 md-margin-bottom-40">
-            <div class="headline"><h2 class="heading-sm">关于我们</h2></div>
-            <p class="margin-bottom-20">
-              <?= Yii::$app->keyStorage->get('site_description') ?>
-            </p>
+            <div class="headline"><h2 class="heading-sm">扫码关注</h2></div>
+            <img src="/img/touming.png" alt="" width="60%;">
           </div>
           <!-- End About -->
 

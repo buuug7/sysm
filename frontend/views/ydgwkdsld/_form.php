@@ -37,7 +37,7 @@ use yii\captcha\Captcha;
 
     <?php echo $form->field($model, 'address')->textInput(['maxlength' => true])->label("住宅小区 (<span style='color:red;'>*填写真实地址</span>)") ?>
 
-    <?php echo $form->field($model, 'address_detail')->textInput(['maxlength' => true])->label("详细地址 (<span style='color:red;'>*填写真实地址</span>)") ?>
+    <?php echo $form->field($model, 'address_detail')->textarea()->label("详细地址 (<span style='color:red;'>*填写真实地址</span>)") ?>
 
     <?php echo $form->field($model, 'package_price')->textInput(['maxlength' => true]) ?>
 

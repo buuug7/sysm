@@ -31,13 +31,14 @@ use yii\captcha\Captcha;
 
     <!--  --><?php /*echo $form->field($model, 'sn')->textInput(['maxlength' => true]) */ ?>
 
-    <?php echo $form->field($model, 'customer_name')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'customer_name')->textInput(['maxlength' => true])->label("客户姓名 (<span style='color:red;'>*填写真实姓名</span>)") ?>
 
-    <?php echo $form->field($model, 'customer_phone')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'customer_phone')->textInput(['maxlength' => true])->label("客户联系电话 (<span
+    style='color:red;'>*能联系到的电话/业务主号</span>)") ?>
 
-    <?php echo $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'address')->textInput(['maxlength' => true])->label("住宅小区 (<span style='color:red;'>*填写真实地址</span>)") ?>
 
-    <?php echo $form->field($model, 'address_detail')->textarea() ?>
+    <?php echo $form->field($model, 'address_detail')->textarea()->label("详细地址 (<span style='color:red;'>*填写真实地址</span>)")  ?>
 
     <?php echo $form->field($model, 'error_code')->textInput(['maxlength' => true]) ?>
 
